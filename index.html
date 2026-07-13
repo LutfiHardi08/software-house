@@ -41,11 +41,14 @@
                 <span class="font-bold text-lg text-slate-900 dark:text-white">Nexus<span class="text-primary">Code</span></span>
             </div>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Menu (Rata Kiri di Samping Logo dengan Tambahan Menu Baru) -->
             <div class="hidden lg:flex flex-1 ml-10 items-center space-x-6 text-sm font-medium">
                 <a href="#home" class="hover:text-primary dark:hover:text-secondary transition-colors">Home</a>
+                <a href="#about" class="hover:text-primary dark:hover:text-secondary transition-colors">Tentang Kami</a>
                 <a href="#services" class="hover:text-primary dark:hover:text-secondary transition-colors">Layanan</a>
                 <a href="#portfolio" class="hover:text-primary dark:hover:text-secondary transition-colors">Portfolio</a>
+                <a href="#testimonials" class="hover:text-primary dark:hover:text-secondary transition-colors">Testimoni</a>
+                <a href="#faq" class="hover:text-primary dark:hover:text-secondary transition-colors">FAQ</a>
                 <a href="#contact" class="hover:text-primary dark:hover:text-secondary transition-colors">Contact</a>
             </div>
 
@@ -62,12 +65,15 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden fixed inset-0 top-[60px] bg-white dark:bg-slate-900 z-40 p-6 shadow-xl lg:hidden">
+        <!-- Mobile Drawer Menu (Disesuaikan dengan Menu Baru) -->
+        <div id="mobile-menu" class="hidden fixed inset-0 top-[60px] bg-white dark:bg-slate-900 z-40 p-6 shadow-xl lg:hidden overflow-y-auto">
             <div class="flex flex-col space-y-4 font-semibold text-sm">
                 <a href="#home" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">Tentang Kami</a>
                 <a href="#services" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">Layanan</a>
                 <a href="#portfolio" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">Portfolio</a>
+                <a href="#testimonials" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">Testimoni</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="py-2 border-b border-slate-100 dark:border-slate-800">FAQ</a>
                 <a href="#contact" onclick="toggleMobileMenu()" class="py-2">Contact</a>
             </div>
         </div>
@@ -96,7 +102,35 @@
         </div>
     </section>
 
-    <!-- 3. LAYANAN -->
+    <!-- 3. TENTANG KAMI SECTION -->
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+            <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Tentang Kami</h2>
+            <p class="text-3xl font-extrabold tracking-tight">Dedikasi Penuh untuk Menghadirkan Kode Kualitas Tinggi</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                NexusCode adalah software house modern yang berfokus pada efisiensi performa, keindahan desain antarmuka, dan keamanan sistem. Kami percaya bahwa produk digital yang hebat lahir dari kombinasi riset mendalam serta implementasi teknologi yang tepat guna.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <p class="text-2xl font-black text-primary">99%</p>
+                    <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-1">Kepuasan Klien</p>
+                </div>
+                <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <p class="text-2xl font-black text-secondary">50+</p>
+                    <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-1">Proyek Selesai</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-100 dark:bg-slate-800 aspect-square lg:aspect-auto lg:h-[350px] rounded-3xl overflow-hidden shadow-inner relative flex items-center justify-center p-8 border border-slate-200 dark:border-slate-700">
+            <div class="text-center space-y-2">
+                <div class="text-4xl">🚀</div>
+                <p class="font-bold text-sm">Visi & Misi Kami</p>
+                <p class="text-xs text-slate-500 max-w-xs">Demokratisasi teknologi premium agar dapat dijangkau oleh semua skala bisnis dengan standar global.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LAYANAN SECTION -->
     <section id="services" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6">
         <div class="max-w-7xl mx-auto">
           <div class="text-center max-w-2xl mx-auto mb-16">
@@ -123,7 +157,7 @@
         </div>
     </section>
 
-    <!-- 4. PORTFOLIO -->
+    <!-- 5. PORTFOLIO SECTION (4 PROJECTS) -->
     <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Karya Kami</h2>
@@ -141,7 +175,6 @@
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sistem marketplace grosir dengan fitur sinkronisasi inventaris multi-gudang secara real-time.</p>
             </div>
           </div>
-
           <!-- Project 2 -->
           <div class="overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all duration-300 group">
             <div class="overflow-hidden">
@@ -153,7 +186,6 @@
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Desain antarmuka analitik keuangan kompleks yang disederhanakan untuk kenyamanan visual manajemen puncak.</p>
             </div>
           </div>
-
           <!-- Project 3 -->
           <div class="overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all duration-300 group">
             <div class="overflow-hidden">
@@ -165,7 +197,6 @@
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Aplikasi pelacakan armada kurir berbasis GPS real-time dengan konsumsi baterai yang sangat efisien.</p>
             </div>
           </div>
-
           <!-- Project 4 -->
           <div class="overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all duration-300 group">
             <div class="overflow-hidden">
@@ -180,7 +211,85 @@
         </div>
     </section>
 
-    <!-- 5. FORM CONTACT -->
+    <!-- 6. TESTIMONI SECTION -->
+    <section id="testimonials" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Testimoni</h2>
+                <p class="text-3xl font-extrabold mt-2 tracking-tight">Apa Kata Klien Kami</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testi 1 -->
+                <div class="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm relative space-y-4">
+                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">
+                        "Kerja sama dengan NexusCode sangat transparan. Aplikasi internal perusahaan kami selesai tepat waktu dengan performa kode yang sangat bersih dan mudah dimodifikasi."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-9 h-9 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center font-bold text-xs">A</div>
+                        <div>
+                            <p class="font-bold text-xs text-slate-900 dark:text-white">Budi Santoso</p>
+                            <p class="text-[10px] text-slate-400">CTO, Solusi Digital Utama</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testi 2 -->
+                <div class="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm relative space-y-4">
+                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">
+                        "Landing page yang dibuat sangat cepat diakses di perangkat mobile. Hasil konversi penjualan produk UMKM kami meningkat drastis berkat struktur navigasi yang rapi."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <div class="w-9 h-9 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center font-bold text-xs">S</div>
+                        <div>
+                            <p class="font-bold text-xs text-slate-900 dark:text-white">Siti Rahma</p>
+                            <p class="text-[10px] text-slate-400">Founder, HijabAura Premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ SECTION (ACCORDION INTERAKTIF) -->
+    <section id="faq" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-primary uppercase tracking-widest">FAQ</h2>
+            <p class="text-3xl font-extrabold mt-2 tracking-tight">Pertanyaan yang Sering Diajukan</p>
+        </div>
+        <div class="space-y-4">
+            <!-- FAQ item 1 -->
+            <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900">
+                <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-xs sm:text-sm flex justify-between items-center focus:outline-none">
+                    <span>Berapa lama estimasi pembuatan sebuah website?</span>
+                    <span id="faq-icon-1" class="text-primary transform transition-transform duration-200">▼</span>
+                </button>
+                <div id="faq-ans-1" class="hidden px-5 pb-5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-50 dark:border-slate-800/50 pt-3">
+                    Untuk landing page standar biasanya membutuhkan waktu sekitar 5-7 hari kerja, sedangkan aplikasi web kustom yang lebih kompleks memerlukan waktu mulai dari 3 hingga 6 minggu tergantung fitur yang dibutuhkan.
+                </div>
+            </div>
+            <!-- FAQ item 2 -->
+            <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900">
+                <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-xs sm:text-sm flex justify-between items-center focus:outline-none">
+                    <span>Apakah website sudah mendukung optimasi SEO?</span>
+                    <span id="faq-icon-2" class="text-primary transform transition-transform duration-200">▼</span>
+                </button>
+                <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-50 dark:border-slate-800/50 pt-3">
+                    Ya, tentu saja. Setiap struktur kode HTML yang kami rancang dari awal telah mengikuti kaidah semantik modern dan standar optimasi mesin pencari terbaru agar ramah terhadap Google Bot.
+                </div>
+            </div>
+            <!-- FAQ item 3 -->
+            <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900">
+                <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-xs sm:text-sm flex justify-between items-center focus:outline-none">
+                    <span>Apakah ada garansi jika terjadi error atau kendala teknis?</span>
+                    <span id="faq-icon-3" class="text-primary transform transition-transform duration-200">▼</span>
+                </button>
+                <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-50 dark:border-slate-800/50 pt-3">
+                    Kami memberikan layanan garansi pemeliharaan gratis selama 3 bulan pertama setelah peluncuran untuk memastikan sistem berjalan tanpa hambatan dan bebas dari kutu kode (*bug*).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FORM CONTACT -->
     <section id="contact" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6">
         <div class="max-w-xl mx-auto bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl">
           <h2 class="text-2xl font-black text-center mb-2">Mulai Konsultasi</h2>
@@ -206,7 +315,7 @@
         </div>
     </section>
 
-    <!-- 6. FOOTER MODERN -->
+    <!-- 9. FOOTER MODERN -->
     <footer class="bg-slate-900 dark:bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
             <!-- Brand Column -->
@@ -220,18 +329,20 @@
                 </p>
             </div>
 
-            <!-- Links Column 1 (Navigasi) -->
+            <!-- Links Column 1 (Navigasi Terkini) -->
             <div class="md:col-span-3 space-y-3">
                 <h4 class="text-white font-bold text-sm">Navigasi</h4>
                 <div class="flex flex-col space-y-2">
                     <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="hover:text-white transition-colors">Tentang Kami</a>
                     <a href="#services" class="hover:text-white transition-colors">Layanan Utama</a>
                     <a href="#portfolio" class="hover:text-white transition-colors">Portfolio Karya</a>
-                    <a href="#contact" class="hover:text-white transition-colors">Kontak Konsultasi</a>
+                    <a href="#testimonials" class="hover:text-white transition-colors">Testimoni Klien</a>
+                    <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
                 </div>
             </div>
 
-            <!-- Links Column 2 (Sosial Media & Info) -->
+            <!-- Links Column 2 -->
             <div class="md:col-span-4 space-y-3">
                 <h4 class="text-white font-bold text-sm">Hubungi Kami</h4>
                 <p class="text-slate-400 leading-relaxed">✉ hello@nexuscode.id</p>
@@ -243,17 +354,17 @@
             </div>
         </div>
 
-        <!-- Copyright Bar (Updated Signature) -->
+        <!-- Copyright Bar -->
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800/60 flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-[11px] text-slate-500">
             <p>&copy; 2026 NexusCode Software House. Hak Cipta Dilindungi Undang-Undang.</p>
             <p class="tracking-wide">Made with <span class="text-red-500 animate-pulse">❤️</span> by <span class="font-semibold text-slate-300 hover:text-primary transition-colors cursor-pointer">Lutfi Hardi Mukhlisin</span></p>
         </div>
     </footer>
 
-    <!-- 7. BACK TO TOP BUTTON -->
+    <!-- 10. BACK TO TOP BUTTON -->
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="opacity-0 pointer-events-none fixed bottom-6 right-6 p-3.5 bg-primary text-white rounded-full text-xs shadow-xl transition-all duration-300 z-50">▲</button>
 
-    <!-- LOGIKA JAVASCRIPT -->
+    <!-- LOGIKA JAVASCRIPT (INTERAKSI & NAVIGASI) -->
     <script>
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -279,6 +390,20 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        // Logika FAQ Accordion Murni (Tanpa Library)
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
         }
 
         function toggleDarkMode() {
