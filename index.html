@@ -99,9 +99,8 @@
         </div>
     </section>
 
-    <!-- 3. TENTANG KAMI SECTION (POSISI DIBALIK: VISI MISI KIRI, TEKS KANAN) -->
+    <!-- 3. TENTANG KAMI SECTION -->
     <section id="about" class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Kotak Visi Misi (Kini di Sebelah Kiri pada Layar Desktop) -->
         <div class="order-2 lg:order-1 bg-slate-100 dark:bg-slate-800 aspect-square lg:aspect-auto lg:h-[350px] rounded-3xl overflow-hidden shadow-inner relative flex items-center justify-center p-8 border border-slate-200 dark:border-slate-700">
             <div class="text-center space-y-2">
                 <div class="text-4xl">🚀</div>
@@ -110,7 +109,6 @@
             </div>
         </div>
         
-        <!-- Teks Deskripsi (Kini di Sebelah Kanan pada Layar Desktop) -->
         <div class="order-1 lg:order-2 space-y-6">
             <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Tentang Kami</h2>
             <p class="text-3xl font-extrabold tracking-tight">Dedikasi Penuh untuk Menghadirkan Kode Kualitas Tinggi</p>
@@ -207,22 +205,23 @@
         </div>
     </section>
 
-    <!-- 6. TESTIMONI SECTION (8 ITEMS - MODERN CAROUSEL) -->
+    <!-- 6. TESTIMONI SECTION (TEXT DI TENGAH & CAROUSEL AUTOPLAY KANAN) -->
     <section id="testimonials" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto relative">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-12">
-                <div>
-                    <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Testimoni</h2>
-                    <p class="text-3xl font-extrabold mt-2 tracking-tight">Kritik & Saran Klien</p>
-                </div>
-                <!-- Tombol Navigasi Slider -->
-                <div class="flex space-x-2 mt-4 sm:mt-0">
-                    <button onclick="moveCarousel(-1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">◀</button>
-                    <button onclick="moveCarousel(1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">▶</button>
+            
+            <!-- Judul & Teks Penjelas Berada di Tengah Sempurna (text-center) -->
+            <div class="text-center max-w-2xl mx-auto mb-12 relative">
+                <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Testimoni</h2>
+                <p class="text-3xl font-extrabold mt-2 tracking-tight">Kritik & Saran Klien</p>
+                
+                <!-- Tombol Navigasi Manual di Sudut Kanan/Kiri Samping Layar Desktop (Agar Judul Tetap Tengah) -->
+                <div class="hidden sm:flex justify-between w-full absolute top-1/2 -translate-y-1/2 px-2 pointer-events-none z-10">
+                    <button onclick="moveCarousel(-1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-md hover:bg-slate-50 dark:hover:bg-slate-800 pointer-events-auto -ml-12 lg:-ml-16">◀</button>
+                    <button onclick="moveCarousel(1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-md hover:bg-slate-50 dark:hover:bg-slate-800 pointer-events-auto -mr-12 lg:-mr-16">▶</button>
                 </div>
             </div>
 
-            <!-- Wrapper Trek Track Carousel -->
+            <!-- Wrapper Trek Track Carousel (Mendukung Autoplay Transisi) -->
             <div id="carouselTrack" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth py-4">
                 <!-- Testi 1 -->
                 <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
@@ -289,10 +288,16 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Tombol Navigasi Alternatif Khusus Tampilan Mobile di bawah Carousel -->
+            <div class="flex justify-center space-x-3 mt-4 sm:hidden">
+                <button onclick="moveCarousel(-1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm">◀</button>
+                <button onclick="moveCarousel(1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm">▶</button>
+            </div>
         </div>
     </section>
 
-    <!-- 7. FAQ SECTION (6 ITEM ACCORDION INTERAKTIF) -->
+    <!-- 7. FAQ SECTION -->
     <section id="faq" class="py-24 px-6 max-w-3xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-xs font-bold text-primary uppercase tracking-widest">FAQ</h2>
@@ -461,13 +466,27 @@
             menu.classList.toggle('hidden');
         }
 
-        // Logika Gerakan Tombol Carousel Testimoni Murni
+        // Logika Gerakan Manual Carousel Testimoni Murni
         function moveCarousel(direction) {
             const track = document.getElementById('carouselTrack');
-            // Menghitung lebar card pertama secara dinamis + gap
             const cardWidth = track.firstElementChild.offsetWidth + 24; 
-            track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+            
+            // Jaga-jaga jika geser manual, kita reset ulang hitungan sisa scroll
+            const maxScrollLeft = track.scrollWidth - track.clientWidth;
+            
+            if (direction === 1 && track.scrollLeft >= maxScrollLeft - 5) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else if (direction === -1 && track.scrollLeft <= 5) {
+                track.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+            }
         }
+
+        // LOGIKA AUTOPLAY CAROUSEL KE KANAN OTOMATIS (Saban 3.5 Detik)
+        setInterval(() => {
+            moveCarousel(1);
+        }, 3500);
 
         function toggleFaq(id) {
             const ans = document.getElementById(`faq-ans-${id}`);
