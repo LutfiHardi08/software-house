@@ -205,7 +205,7 @@
         </div>
     </section>
 
-    <!-- 6. TESTIMONI SECTION (8 ITEMS - AUTOMATIC & SWIPEABLE CAROUSEL WITH BOTTOM RIGHT NAV) -->
+<!-- 6. TESTIMONI SECTION (INFINITE AUTOMATIC & SWIPEABLE CAROUSEL) -->
     <section id="testimonials" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto relative">
             <!-- Judul Tetap Berada di Tengah -->
@@ -215,7 +215,8 @@
             </div>
 
             <!-- Wrapper Trek Track Carousel (Mendukung Swipe Layar Sentuh) -->
-            <div id="carouselTrack" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth py-4"
+            <!-- Catatan: Kelas 'scroll-smooth' dilepas dari HTML agar perpindahan instan saat reset loop tidak terlihat patah -->
+            <div id="carouselTrack" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-4"
                  ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
                 
                 <!-- Testi 1 -->
@@ -284,7 +285,7 @@
                 </div>
             </div>
 
-            <!-- Tombol Navigasi Slider (Kini Berada di Bagian Bawah Sebelah Kanan Card) -->
+            <!-- Tombol Navigasi Slider (Berada di Bagian Bawah Sebelah Kanan Card) -->
             <div class="flex justify-end space-x-2 mt-6 pr-2">
                 <button onclick="moveCarousel(-1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">◀</button>
                 <button onclick="moveCarousel(1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">▶</button>
@@ -456,20 +457,30 @@
             menu.classList.toggle('hidden');
         }
 
-        // --- SISTEM CAROUSEL TESTIMONI OTOMATIS & INTEGRASI SWIPE ---
+// --- SISTEM CAROUSEL TESTIMONI OTOMATIS & INFINITE LOOP SWIPE ---
         const track = document.getElementById('carouselTrack');
+        const originalCards = Array.from(track.children);
         let autoplayTimer = null;
+        let isTransitioning = false;
+
+        // Kloning 3 card pertama ke area paling akhir untuk fondasi infinite scrolling
+        originalCards.slice(0, 3).forEach(card => {
+            const clone = card.cloneNode(true);
+            // Hapus atribut snap agar tidak mengganggu kalkulasi manual saat transisi reset
+            clone.removeAttribute('snap-start'); 
+            track.appendChild(clone);
+        });
+
+        // Menghitung lebar basis per satu kartu (ditambah gap layout sebesar 24px)
+        function getCardWidth() {
+            return track.firstElementChild.offsetWidth + 24;
+        }
 
         function startAutoplay() {
-            stopAutoplay(); // Cegah duplikasi timer
+            stopAutoplay();
             autoplayTimer = setInterval(() => {
-                // Jika scroll sudah di ujung kanan, reset kembali ke ujung kiri awal
-                if (track.scrollLeft + track.offsetWidth >= track.scrollWidth - 10) {
-                    track.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    moveCarousel(1);
-                }
-            }, 4000); // Berganti otomatis setiap 4 detik
+                moveCarousel(1);
+            }, 4000); // Geser otomatis tiap 4 detik
         }
 
         function stopAutoplay() {
@@ -477,15 +488,49 @@
         }
 
         function moveCarousel(direction) {
-            const cardWidth = track.firstElementChild.offsetWidth + 24; 
-            track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+            if (isTransitioning) return;
+            
+            const cardWidth = getCardWidth();
+            const maxScrollLeft = originalCards.length * cardWidth;
+
+            // Cek batasan loop sebelum eksekusi pergeseran
+            checkLoopBounds(maxScrollLeft, cardWidth);
+
+            // Trigger perpindahan halus
+            track.style.scrollBehavior = 'smooth';
+            track.scrollLeft += direction * cardWidth;
         }
 
-        // Interaksi Tombol Manual menghentikan sementara autoplay
+        // Memeriksa posisi scroll secara real-time untuk melakukan reset instan
+        function checkLoopBounds(maxScrollLeft, cardWidth) {
+            // Jika scroll sudah menyentuh/melebihi batas ujung kartu asli terakhir, kembalikan ke awal secara instan
+            if (track.scrollLeft >= maxScrollLeft - 5) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = 0;
+            }
+            // Jika melakukan swipe balik kiri melewati batas nol, pindahkan instan ke area belakang
+            else if (track.scrollLeft <= 0 && track.scrollLeft < 0) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = maxScrollLeft - cardWidth;
+            }
+        }
+
+        // Pantau event scroll manual/native pengguna untuk menjaga akurasi infinite posisi
+        track.addEventListener('scroll', () => {
+            const cardWidth = getCardWidth();
+            const maxScrollLeft = originalCards.length * cardWidth;
+            
+            if (track.scrollLeft >= maxScrollLeft + 10) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = track.scrollLeft - maxScrollLeft;
+            }
+        });
+
+        // Interaksi Tombol Manual menghentikan sementara jalannya autoplay
         document.querySelectorAll('#testimonials button').forEach(btn => {
             btn.addEventListener('click', () => {
                 stopAutoplay();
-                setTimeout(startAutoplay, 3000); // Hidupkan kembali autoplay setelah 3 detik diam
+                setTimeout(startAutoplay, 3000); // Jalankan ulang autoplay setelah jeda 3 detik aman
             });
         });
 
@@ -502,20 +547,17 @@
             touchEndX = event.changedTouches[0].clientX;
             const swipeDistance = touchStartX - touchEndX;
 
-            // Toleransi geseran minimum sebesar 50 pixel untuk mencegah ketidaksengajaan
-            if (Math.abs(swipeDistance) > 50) {
+            if (Math.abs(swipeDistance) > 50) { // Toleransi geser minimal 50px
                 if (swipeDistance > 0) {
-                    // Swipe ke kiri: Maka kartu bergeser ke kiri, memunculkan konten kanan (Maju)
-                    moveCarousel(1);
+                    moveCarousel(1);  // Geser Maju
                 } else {
-                    // Swipe ke kanan: Maka kartu bergeser ke kanan, memunculkan konten kiri (Mundur)
-                    moveCarousel(-1);
+                    moveCarousel(-1); // Geser Mundur
                 }
             }
-            setTimeout(startAutoplay, 3000); // Jalankan kembali autoplay
+            setTimeout(startAutoplay, 3000);
         }
 
-        // Jalankan Autoplay pertama kali saat halaman siap
+        // Jalankan Autoplay pertama kali saat rendering komponen siap
         startAutoplay();
 
 
