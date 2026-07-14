@@ -205,94 +205,120 @@
         </div>
     </section>
 
-<!-- 6. TESTIMONI SECTION (INFINITE AUTOMATIC & SWIPEABLE CAROUSEL) -->
+<!-- 6. TESTIMONI SECTION (CONTINUOUS INFINITE AUTO-SCROLL) -->
     <section id="testimonials" class="py-24 bg-slate-50 dark:bg-slate-950/40 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto relative">
             <!-- Judul Tetap Berada di Tengah -->
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-xs font-bold text-primary uppercase tracking-widest">Testimoni</h2>
                 <p class="text-3xl font-extrabold mt-2 tracking-tight">Kritik & Saran Klien</p>
             </div>
 
-            <!-- Wrapper Trek Track Carousel (Mendukung Swipe Layar Sentuh) -->
-            <!-- Catatan: Kelas 'scroll-smooth' dilepas dari HTML agar perpindahan instan saat reset loop tidak terlihat patah -->
-            <div id="carouselTrack" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-4"
-                 ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
-                
-                <!-- Testi 1 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Aplikasi internal perusahaan kami selesai tepat waktu dengan performa kode yang bersih dan mudah dimodifikasi."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">BS</div>
-                        <div><p class="font-bold text-xs">Budi Santoso</p><p class="text-[9px] text-slate-400">CTO, Solusi Digital</p></div>
-                    </div>
-                </div>
-                <!-- Testi 2 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Landing page premium yang dibuat sangat cepat diakses. Hasil konversi penjualan produk UMKM kami meroket tajam."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center font-bold text-xs">SR</div>
-                        <div><p class="font-bold text-xs">Siti Rahma</p><p class="text-[9px] text-slate-400">Founder, HijabAura</p></div>
-                    </div>
-                </div>
-                <!-- Testi 3 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Sistem LMS kustom dari NexusCode sangat stabil menampung ribuan mahasiswa serentak saat masa ujian online."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xs">HP</div>
-                        <div><p class="font-bold text-xs">Hendra Putera</p><p class="text-[9px] text-slate-400">Wakil Rektor, Bidang IT</p></div>
-                    </div>
-                </div>
-                <!-- Testi 4 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Integrasi sistem ERP mereka memotong alur birokrasi pergudangan kami hingga 40% lebih cepat dari sebelumnya."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xs">DK</div>
-                        <div><p class="font-bold text-xs">Dewi Kusuma</p><p class="text-[9px] text-slate-400">Direktur Ops, Logistik Jaya</p></div>
-                    </div>
-                </div>
-                <!-- Testi 5 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Desain UI/UX dashboard analitiknya sangat intuitif. Tim keuangan kami langsung paham tanpa perlu pelatihan lama."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold text-xs">AL</div>
-                        <div><p class="font-bold text-xs">Ahmat Luthfi</p><p class="text-[9px] text-slate-400">Head of Finance, FinTech Go</p></div>
-                    </div>
-                </div>
-                <!-- Testi 6 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Sangat responsif saat diajak diskusi. Penanganan bug cepat dan layanan purna jualnya jempolan."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs">RI</div>
-                        <div><p class="font-bold text-xs">Rian Irawan</p><p class="text-[9px] text-slate-400">Product Manager, TechIn</p></div>
-                    </div>
-                </div>
-                <!-- Testi 7 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Aplikasi tracking kurir berbasis GPS milisec-nya akurat. Driver kami merasa terbantu dengan peta yang ringan."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xs">MK</div>
-                        <div><p class="font-bold text-xs">M. Kurnia</p><p class="text-[9px] text-slate-400">CEO, AntarPaket</p></div>
-                    </div>
-                </div>
-                <!-- Testi 8 -->
-                <div class="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-start p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between">
-                    <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Struktur SEO on-page bawaan web buatan NexusCode membuat korporasi kami merangsek naik ke halaman satu Google."</p>
-                    <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
-                        <div class="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">NV</div>
-                        <div><p class="font-bold text-xs">Novi Valeria</p><p class="text-[9px] text-slate-400">Digital Marketer, GrowthCo</p></div>
-                    </div>
-                </div>
-            </div>
+            <!-- CSS Khusus untuk Efek Continuous Loop (Silakan taruh di bagian <style> index.html Anda) -->
+            <style>
+                .marquee-container {
+                    display: flex;
+                    width: 100%;
+                    overflow: hidden;
+                    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+                    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+                }
+                .marquee-track {
+                    display: flex;
+                    gap: 24px;
+                    animation: scroll-continuous 35s linear infinite;
+                    width: max-content;
+                }
+                /* Pause animasi saat cursor user diarahkan/hover ke kartu */
+                .marquee-container:hover .marquee-track {
+                    animation-play-state: paused;
+                }
+                @keyframes scroll-continuous {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        /* Menggeser setengah total lebar track (karena track kedua adalah kloningan sempurna) */
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
 
-            <!-- Tombol Navigasi Slider (Berada di Bagian Bawah Sebelah Kanan Card) -->
-            <div class="flex justify-end space-x-2 mt-6 pr-2">
-                <button onclick="moveCarousel(-1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">◀</button>
-                <button onclick="moveCarousel(1)" class="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center font-bold text-xs shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800">▶</button>
+            <!-- Container Slider Utama -->
+            <div class="marquee-container py-4">
+                <div id="marqueeTrack" class="marquee-track">
+                    
+                    <!-- KELOMPOK UTAMA (8 Card Asli) -->
+                    <!-- Testi 1 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Aplikasi internal perusahaan kami selesai tepat waktu dengan performa kode yang bersih dan mudah dimodifikasi."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">BS</div>
+                            <div><p class="font-bold text-xs">Budi Santoso</p><p class="text-[9px] text-slate-400">CTO, Solusi Digital</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 2 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Landing page premium yang dibuat sangat cepat diakses. Hasil konversi penjualan produk UMKM kami meroket tajam."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center font-bold text-xs">SR</div>
+                            <div><p class="font-bold text-xs">Siti Rahma</p><p class="text-[9px] text-slate-400">Founder, HijabAura</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 3 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Sistem LMS kustom dari NexusCode sangat stabil menampung ribuan mahasiswa serentak saat masa ujian online."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xs">HP</div>
+                            <div><p class="font-bold text-xs">Hendra Putera</p><p class="text-[9px] text-slate-400">Wakil Rektor, Bidang IT</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 4 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Integrasi sistem ERP mereka memotong alur birokrasi pergudangan kami hingga 40% lebih cepat dari sebelumnya."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xs">DK</div>
+                            <div><p class="font-bold text-xs">Dewi Kusuma</p><p class="text-[9px] text-slate-400">Direktur Ops, Logistik Jaya</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 5 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Desain UI/UX dashboard analitiknya sangat intuitif. Tim keuangan kami langsung paham tanpa perlu pelatihan lama."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold text-xs">AL</div>
+                            <div><p class="font-bold text-xs">Ahmat Luthfi</p><p class="text-[9px] text-slate-400">Head of Finance, FinTech Go</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 6 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Sangat responsif saat diajak diskusi. Penanganan bug cepat dan layanan purna jualnya jempolan."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs">RI</div>
+                            <div><p class="font-bold text-xs">Rian Irawan</p><p class="text-[9px] text-slate-400">Product Manager, TechIn</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 7 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Aplikasi tracking kurir berbasis GPS milisec-nya akurat. Driver kami merasa terbantu dengan peta yang ringan."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xs">MK</div>
+                            <div><p class="font-bold text-xs">M. Kurnia</p><p class="text-[9px] text-slate-400">CEO, AntarPaket</p></div>
+                        </div>
+                    </div>
+                    <!-- Testi 8 -->
+                    <div class="w-[300px] md:w-[380px] p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm flex flex-col justify-between shrink-0">
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic leading-relaxed">"Struktur SEO on-page bawaan web buatan NexusCode membuat korporasi kami merangsek naik ke halaman satu Google."</p>
+                        <div class="flex items-center space-x-3 pt-6 border-t border-slate-50 dark:border-slate-800 mt-4">
+                            <div class="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">NV</div>
+                            <div><p class="font-bold text-xs">Novi Valeria</p><p class="text-[9px] text-slate-400">Digital Marketer, GrowthCo</p></div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
-
+    
     <!-- 7. FAQ SECTION -->
     <section id="faq" class="py-24 px-6 max-w-3xl mx-auto">
         <div class="text-center mb-16">
@@ -560,7 +586,14 @@
         // Jalankan Autoplay pertama kali saat rendering komponen siap
         startAutoplay();
 
-
+        // --- SISTEM AUTOMATIC INFINITE SCROLL CAROUSEL ---
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        
+        // Gandakan seluruh isi di dalam track secara dinamis
+        // untuk membuat salinan sambungan linear tanpa ujung
+        const originalContent = marqueeTrack.innerHTML;
+        marqueeTrack.innerHTML = originalContent + originalContent;
+        
         // Logika FAQ Accordion
         function toggleFaq(id) {
             const ans = document.getElementById(`faq-ans-${id}`);
